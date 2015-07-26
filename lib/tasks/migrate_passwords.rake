@@ -10,17 +10,17 @@ namespace :app do
 	 	#Find user in users and check validate and if true make
 	 	User.find_each do |user|
 	 		puts "Migrating user: #{user.id} | #{user.full_name}"
-	 		if !user.valid? || user.attribute_name["password"].blank?
-	 			puts "User: ##{user.id} - #{user.full_name} invalid"
-	 			puts "Required manual correction"
+	 		if user.valid?	 			
+	 			puts "User correct"
 	 			next
 	 		end
 
 	 		encripted_password = user.attributes["password"]
 	 		user.password 			   = encripted_password
 	 		user.password_confirmation = encripted_password
+	 		puts "Success migrate"
 
 	 		user.save!
 	 	end
 	end
-end  
+end    
