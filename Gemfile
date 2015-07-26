@@ -42,6 +42,9 @@ group :development, :test do
   gem 'spring'
 
   # Secure Password
-  gem 'bcrypt', '~> 3.1.7' 
+  gem 'bcrypt', '~> 3.1.7'
+
+  # Use Node.js 
+  gem 'therubyracer', platforms: :ruby 
 end
 

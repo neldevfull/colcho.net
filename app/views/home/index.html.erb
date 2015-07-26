@@ -1,6 +1,8 @@
-<h1>Colcho.net</h1>
-<h2>Choose one of the following options: </h2>
+<h1>Rooms recently posted</h1> 
 <ul>
-	<li><%= link_to "Sign up:", new_user_path %></li>
-	<li><%= link_to "View all rooms", rooms_path %></li>
-</ul>
+	<% @rooms.each do |room| %>
+		<li>
+			<%= link_to room.complete_name, room %> 
+		</li>
+	<% end %>
+</ul> 

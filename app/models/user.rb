@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email 
 	validates_format_of :email, with: EMAIL_REGEXP
 
-	has_secure_password  
+	has_secure_password  	
 
 	# validate :email_format   
 
