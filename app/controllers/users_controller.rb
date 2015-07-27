@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 			redirect_to @user,
 				notice: 'Success when upgrading' 
 		else
-			reder actioni: :edit
+			render action: :edit
 		end 
 	end
 

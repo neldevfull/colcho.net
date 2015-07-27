@@ -8,7 +8,8 @@ $error-text-color: #B94A48;
 $success-text-color: #468847;  
 
 * { 
-	font-family: $sans-serif-families
+	font-family: $sans-serif-families;
+	 font-size: 14px;
 }
 
 body {
@@ -139,39 +140,38 @@ form {
 			border: 1px solid rgba(189, 74, 72, 0.6);
 		}
 	}
-
-	.error_message {
-		margin-left: 5px;
-		display: inline;
-		color: $error-text-color;
-	}
-
-	.padded_flash {
-	  padding: 10px;
-	  margin: 10px 0;
-	  font-weight: bold;
-	  width: 500px;
-	}
-
-	#error_explanation {
-	  border: 1px solid $error-text-color;
-	  color: $error-text-color;
-	  background-color: #F2DEDE;
-	  @extend .padded_flash;
-	}
-
-	#notice {
-	  color: $success-text-color;
-	  border: 1px solid $success-text-color;
-	  @extend .padded_flash;
-	  background-color: #DFF0D8;
-	}
-
-	#alert { 
-	  color: $error-text-color;
-	  border: 1px solid $error-text-color;
-	  @extend .padded_flash;
-	  background-color: #F2DEDE;
-	}
-
 } 
+
+.error_message {
+	display: inline;
+	margin-left: 5px;		
+	color: $error-text-color;
+}
+
+.padded_flash {
+  padding: 10px;
+  margin: 10px 0;
+  font-weight: bold;
+  width: 500px;
+}
+
+#error_explanation {
+  border: 1px solid $error-text-color;
+  color: $error-text-color;
+  background-color: #F2DEDE;
+  @extend .padded_flash;
+}
+
+#notice {
+  color: $success-text-color;
+  border: 1px solid $success-text-color;
+  @extend .padded_flash;
+  background-color: #DFF0D8;
+}
+
+#alert { 
+  color: $error-text-color;
+  border: 1px solid $error-text-color;
+  @extend .padded_flash;
+  background-color: #F2DEDE;
+}
