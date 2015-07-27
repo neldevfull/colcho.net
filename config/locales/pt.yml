@@ -1,0 +1,46 @@
+pt:
+  rooms:
+    new:
+      title: Cadastro
+    edit:
+      title: Editar
+  
+  users:
+    new:
+      title: Cadastro
+    edit:
+      title: Editar perfil
+    show:
+      title: "Perfil: %{user_name}"
+      home: Início
+      edit: 'Editar perfil'
+      location: "Locallização: %{location}"
+      bio: "Bio: %{bio}"
+  
+  links:
+    back: Voltar
+    show: Mostrar
+
+  layout: 
+    rooms: Quartos
+    signup: Cadastro
+
+  general:
+    form_error: "Há erros no formulário, por favor verifique."
+
+  activerecord:
+    models:
+      room: Quarto
+      user: Usuário
+    attributes:
+      user:
+        bio: Biografia
+        email: Email
+        full_name: Nome completo
+        location: Localização
+        password: Senha
+        password_confirmation: Confirme sua senha
+      room:
+        description: Descrição
+        location: Localização
+        title: Título        
