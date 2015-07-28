@@ -1,4 +1,7 @@
 pt:
+  confirmations:
+    success: "Email confirmado com sucesso, obrigado!"
+
   rooms:
     new:
       title: Cadastro
