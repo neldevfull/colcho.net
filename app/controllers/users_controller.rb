@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
+			Signup.confirm_email(@user).deliver_now
 			redirect_to @user,
 				notice: 'Success when registering' 
 		else
