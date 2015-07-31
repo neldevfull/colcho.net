@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resource :confirmation, only: [:show]
+  resource :user_sessions, only: [:new, :create, :destroy]
 
   get ':locale' => 'home#index', locale: /en|pt/
   root 'home#index'
