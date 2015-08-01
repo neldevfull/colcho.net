@@ -1,4 +1,8 @@
 pt:
+  flash:
+    notice:
+      singed_in: 'Login efetuado com sucesso'
+
   confirmations:
     success: "Email confirmado com sucesso, obrigado!"
 

@@ -1,4 +1,10 @@
+#encoding: utf-8 
 class User < ActiveRecord::Base
+
+	#default_scope -> { where('confirmed_at IS NOT NULL') }
+	scope :most_recent, -> { order('created_at DESC') }
+	scope :where_location, -> (location) { where(location: location) }   
+	scope :confirmed, -> { where.not(confirmed_at: nil) }
 
 	EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ 
 
@@ -23,6 +29,17 @@ class User < ActiveRecord::Base
 
 	def confirmed?
 		confirmed_at.present?
+	end
+
+	def self.authenticate(email, password)
+		# *** Utilization condition 'if' ***
+		# user = confirmed.find_by(email: email)
+		# if user.present?
+		# 	user.authenticate(password)
+		# end
+		# *** Utilization condition 'try' ***
+		confirmed.find_by(email: email).
+			try(:authenticate, password)
 	end
 
 	# validate :email_format   
