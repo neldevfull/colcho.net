@@ -10,10 +10,12 @@ class UserSession
 		@password = attributes[:password] 
 	end
 
+	# Store user in session
 	def store(user)
 		@session[:user_id] = user.id
 	end
 
+	# Responsible for authentication
 	def authenticate!
 		user = User.authenticate(@email, @password)
 
@@ -24,4 +26,18 @@ class UserSession
 			false
 		end
 	end 
+
+	# User is in session
+	def current_user
+		User.find(@session[:user_id])
+	end
+
+	# Check user session
+	def user_signed_in?
+		@session[:user_id].present?
+	end
+
+	def destroy
+		@session[:user_id] = nil
+	end
 end
