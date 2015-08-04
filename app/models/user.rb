@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	scope :most_recent, -> { order('created_at DESC') }
 	scope :where_location, -> (location) { where(location: location) }   
 	scope :confirmed, -> { where.not(confirmed_at: nil) }
-
+	
 	EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ 
 
 	validates_presence_of :email, :full_name, :location	
@@ -13,12 +13,17 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email 
 	validates_format_of :email, with: EMAIL_REGEXP
 
-	has_secure_password  	
+	# Encrypt password
+	has_secure_password  
+	# One user has many rooms
+	has_many :rooms	
 
+	# Creation of token
 	before_create do |user|
 		user.confirmation_token = SecureRandom.urlsafe_base64
 	end 
 
+	# Make the user login confirmation
 	def confirm!
 		return if confirmed?
 
@@ -27,10 +32,12 @@ class User < ActiveRecord::Base
 		save! 
 	end
 
+	# Check if user is already confirmed
 	def confirmed?
 		confirmed_at.present?
 	end
 
+	# Authentication of the user
 	def self.authenticate(email, password)
 		# *** Utilization condition 'if' ***
 		# user = confirmed.find_by(email: email)

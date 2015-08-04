@@ -1,4 +1,4 @@
-pt: 
+pt:  
   flash:
     alert:
       needs_login: "Você precisa estar logado para continuar"
@@ -10,11 +10,19 @@ pt:
   confirmations:
     success: "Email confirmado com sucesso, obrigado!"
 
+  dialogs:
+    destroy: 'Você tem certeza que deseja remover?'
+
   rooms:
     new:
       title: Cadastro
     edit:
       title: Editar
+    index: 'Quartos disponíveis'
+    room: 
+      owner_html: '&mdash; %{owner} (%{when})'
+      edit: 'Editar'
+      destroy: 'Remover'
   
   users:
     new:
