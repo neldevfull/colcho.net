@@ -1,6 +1,9 @@
 #encoding: utf-8 
 class Room < ActiveRecord::Base
-	# One (user) to many (rooms) relationship
+	# One room has many reviews
+	has_many :reviews, dependent: :destroy
+	has_many :reviewed_rooms, through: :reviews, source: :room
+	# Reference of the user for the room
 	belongs_to :user
 
 	validates_presence_of :title, :location, :description

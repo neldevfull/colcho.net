@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
 	# Encrypt password
 	has_secure_password  
 	# One user has many rooms
-	has_many :rooms	
+	has_many :rooms, dependent: :destroy	
+	has_many :reviews, dependent: :destroy
 
 	# Creation of token
 	before_create do |user|

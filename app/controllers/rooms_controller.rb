@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build(room_params)
 
     if @room.save
-      redirect_to @room, notice: t('flahs.notice.room.created')
+      redirect_to @room, notice: t('flash.notice.room.created')
     else
       render :new
     end
@@ -37,7 +37,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1
   def update
     if @room.update(room_params)
-      redirect_to @room, notice: t('flahs.notice.room_updated')
+      redirect_to @room, notice: t('flash.notice.room_updated')
     else
       render :edit
     end
