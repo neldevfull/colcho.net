@@ -26,6 +26,14 @@ pt:
       owner_html: '&mdash; %{owner} (%{when})'
       edit: 'Editar'
       destroy: 'Remover'
+    review_form:
+      login_to_review: Faça o login para avaliar quartos
+    review:
+      stats:
+        zero: 'Não há avaliações'
+        one: '%{average}%{max} (1 avaliação)'
+        other: '%{average}%{max} (%{count} avaliações)'
+
   
   users:
     new:
@@ -77,6 +85,7 @@ pt:
     models:
       room: Quarto
       user: Usuário
+      review: Avaliação
     attributes:
       user:
         bio: Biografia

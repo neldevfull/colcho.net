@@ -1,6 +1,4 @@
-class Rooms::ReviewsController < ApplicationController
-
-	before_filter :require_authentication
+class Rooms::ReviewsController < Rooms::BaseController
 
 	def create
 		review = room.reviews.
@@ -13,14 +11,4 @@ class Rooms::ReviewsController < ApplicationController
 		create
 	end
 
-	private 
-
-	def room
-		@room =|| Room.find(params[:room_id])
-	end
-
-	def review_params
-		params.require(:review).permit(:points)
-	end
-	
 end

@@ -6,11 +6,17 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @rooms = Room.all
+    @rooms = Room.most_recent.map do |room|
+      RoomPresenter.new(room, self, false)
+    end
   end
 
   # GET /rooms/1
   def show
+    if user_signed_in?
+      @user_review = @room.reviews.
+        find_or_initialize_by(user_id: current_user.id)      
+    end
   end
 
   # GET /rooms/new
@@ -52,7 +58,8 @@ class RoomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
+      room_model = Room.find(params[:id])
+      @room      = RoomPresenter.new(room_model, self)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
